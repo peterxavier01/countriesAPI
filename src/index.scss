@@ -1,0 +1,31 @@
+.light {
+  --text-clr: hsl(200, 15%, 8%);
+  --text-secondary-clr: hsl(200, 15%, 8%);
+  --input-text-clr: hsl(0, 0%, 52%);
+  --bg-main: hsl(0, 0%, 98%);
+  --bg-secondary: hsl(0, 0%, 100%);
+  --white: hsl(0, 0%, 100%);
+  --border-radius-xs: 4px;
+  --border-radius-sm: 8px;
+  --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.dark {
+  --input-text-clr: hsl(0, 0%, 100%);
+  --bg-main: hsl(207, 26%, 17%);
+  --bg-secondary: hsl(209, 23%, 22%);
+  --text-clr: hsl(0, 0%, 100%);
+  --text-secondary-clr: hsl(0, 0%, 85%);
+  --white: hsl(0, 0%, 100%);
+  --border-radius-xs: 4px;
+  --border-radius-sm: 8px;
+  --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}

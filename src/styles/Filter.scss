@@ -1,0 +1,12 @@
+.filter {
+  border-radius: var(--border-radius-sm);
+}
+
+.filter select {
+  outline: none;
+  padding: 1em;
+  border: none;
+  background-color: var(--bg-secondary);
+  transition: background-color 0.3s ease-in-out;
+  color: var(--text-secondary-clr);
+}
