@@ -2,7 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
 import "../styles/CountryDetails.scss";
 import useFetchCountries from "../hooks/useFetchCountries";
-// import useCountryCode from "../hooks/useCountryCode";
+import Borders from "../components/Borders";
+import { getCurrency, getLanguageString, getNativeName } from "../config/utils";
 
 const CountryDetails = () => {
   const navigate = useNavigate();
@@ -12,48 +13,8 @@ const CountryDetails = () => {
   const { data: country } = useFetchCountries(
     `https://restcountries.com/v3.1/name/${countryName}`
   );
-  console.log(country);
 
-  // const borderCountries = country[0]?.borders;
-  // const borderCountry =
-  //   borderCountries &&
-  //   borderCountries?.map((border) => {
-  //     return border;
-  //   });
-
-  // const { data } = useCountryCode(borderCountry && borderCountry.toString());
-  // console.log(data);
-  // const name =
-  //   data &&
-  //   data.map((item) => {
-  //     return item?.name?.common;
-  //   });
-  // console.log(name);
-  const getLanguageString = () => {
-    let language = country[0]?.languages;
-    let langArray = Object.entries(language ?? {});
-    let langArrayMapped = langArray.map((item) => item[1]);
-    let languages = langArrayMapped.map((item) => item);
-
-    return languages.join(", ");
-  };
-
-  const getNativeName = () => {
-    let nativeName = country[0]?.name?.nativeName;
-    let nativeNameArray = Object.entries(nativeName ?? {});
-    let nativeNameArrayMapped = nativeNameArray.map(
-      (nativeNameArray) => nativeNameArray[1]
-    );
-    let nativeNames = nativeNameArrayMapped.map((item) => item.common);
-    return nativeNames?.[0];
-  };
-
-  const getCurrency = () => {
-    const currency = country[0]?.currencies;
-    const currencyArray = Object.entries(currency ?? {});
-    let currencyName = currencyArray.map((item) => item[1]?.name);
-    return currencyName;
-  };
+  const borders = country[0]?.borders;
 
   return (
     <section className="country-details">
@@ -76,7 +37,7 @@ const CountryDetails = () => {
                 <h2>{country[0]?.name?.common}</h2>
                 <p>
                   <span>native name: </span>
-                  {getNativeName()}
+                  {getNativeName(country[0]?.name?.nativeName)}
                 </p>
                 <p>
                   <span>population: </span>
@@ -103,22 +64,17 @@ const CountryDetails = () => {
                 </p>
                 <p>
                   <span>currencies: </span>
-                  {getCurrency()}
+                  {getCurrency(country[0]?.currencies)}
                 </p>
                 <p>
                   <span>languages: </span>
-                  {getLanguageString()}
+                  {getLanguageString(country[0]?.languages)}
                 </p>
               </div>
             </div>
 
             <div>
-              <p>
-                Border countries:
-                <span>France</span>
-                <span>Germany</span>
-                <span>Netherlands</span>
-              </p>
+              <Borders borders={borders} />
             </div>
           </div>
         </div>

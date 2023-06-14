@@ -8,7 +8,6 @@ const Home = () => {
   const { data: countries } = useFetchCountries(
     "https://restcountries.com/v3.1/all"
   );
-  console.log(countries);
 
   return (
     <div className="home">

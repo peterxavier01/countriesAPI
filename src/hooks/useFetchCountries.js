@@ -11,7 +11,6 @@ const useFetchCountries = (url) => {
       setData(data);
     } catch (error) {
       setError(error.message);
-      console.log(error.message);
     }
   }, [url]);
 
