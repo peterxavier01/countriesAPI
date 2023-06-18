@@ -21,4 +21,13 @@ const getCurrency = (currency) => {
   return currencyName;
 };
 
-export { getLanguageString, getNativeName, getCurrency };
+const options = [
+  { value: "", label: "Filter by Region" },
+  { value: "africa", label: "Africa" },
+  { value: "americas", label: "America" },
+  { value: "asia", label: "Asia" },
+  { value: "europe", label: "Europe" },
+  { value: "oceania", label: "Oceania" },
+];
+
+export { getLanguageString, getNativeName, getCurrency, options };

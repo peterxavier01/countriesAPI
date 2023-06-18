@@ -7,7 +7,7 @@ const Card = ({ url, src, name, population, region, capital }) => {
     <div className="card-wrapper">
       <Link to={url} className="card-wrapper-link">
         <div className="card-img">
-          <img src={src} alt="" />
+          <img src={src} alt="" loading="lazy" />
         </div>
       </Link>
       <div className="card-content">
