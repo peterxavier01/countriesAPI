@@ -1,11 +1,17 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 const ThemeContext = createContext();
 
 export const ThemeContextProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(
+    JSON.parse(localStorage.getItem("theme")) || "light"
+  );
+
+  useEffect(() => {
+    window.localStorage.setItem("theme", JSON.stringify(theme));
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
