@@ -32,13 +32,11 @@ const Borders = ({ borders }) => {
       {data && (
         <p>
           Border countries:
-          {data.map((item, index) => {
-            return (
-              <span key={index}>
-                <Link href={`name/${item}`}>{item}</Link>
-              </span>
-            );
-          })}
+          {data.map((item, index) => (
+            <Link key={index} to={`/name/${item}`} relative="path">
+              {item}
+            </Link>
+          ))}
         </p>
       )}
     </div>

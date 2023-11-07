@@ -87,14 +87,21 @@
           flex-wrap: wrap;
           gap: 1em;
 
-          span {
+          a {
             font-weight: 300;
             padding: 0.5em 1em;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius-xs);
             background-color: var(--bg-secondary);
             color: var(--text-secondary-clr);
+            text-decoration: none;
             transition: background-color color 0.3s ease-in-out;
+
+            &:hover {
+              scale: 0.97;
+              opacity: 0.8;
+              transition: all 300ms ease-in-out;
+            }
           }
         }
       }
