@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const Borders = ({ borders }) => {
@@ -31,9 +32,13 @@ const Borders = ({ borders }) => {
       {data && (
         <p>
           Border countries:
-          {data.map((item, index) => (
-            <span key={index}>{item}</span>
-          ))}
+          {data.map((item, index) => {
+            return (
+              <span key={index}>
+                <Link href={`name/${item}`}>{item}</Link>
+              </span>
+            );
+          })}
         </p>
       )}
     </div>
